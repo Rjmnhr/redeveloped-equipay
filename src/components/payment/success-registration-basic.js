@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import AxiosInstance from "../../config/axios";
 import { useApplicationContext } from "../../context/app-context";
 import { login_path, pay_pulse_input_path } from "../../config/constant";
+import { goToExternalURL } from "../../utils/price-a-job-helper-functions";
 
 const SuccessRegistrationBasic = () => {
   const first_name = sessionStorage.getItem("first_name");
@@ -86,7 +87,11 @@ const SuccessRegistrationBasic = () => {
           setSeconds(seconds - 1);
         } else {
           clearInterval(countdown);
-          navigate(pay_pulse_input_path);
+          goToExternalURL(
+            pay_pulse_input_path,
+            userData?.user_type,
+            isTrailActive
+          );
         }
       }, 1000);
 

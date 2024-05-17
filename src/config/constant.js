@@ -7,7 +7,7 @@ export const otp_validation_path = "/otp-validation";
 export const unauthorized_path = "/unauthorized";
 
 export const pay_pulse_landing_path = "/pay-pulse";
-export const pay_pulse_input_path = "/pay-pulse-add-details";
+export const pay_pulse_input_path = "https://paypulse.equipaypartners.com";
 // export const pay_pulse_input_path = "http://localhost:3001";
 export const pay_pulse_output_path = "/reports";
 export const pay_pulse_dashboard_path = "/reports-dashboard";
@@ -35,7 +35,7 @@ export const privacy_policy_path = "/privacy-policy";
 
 export const colorConfig = {
   colors: {
-    primary: "#5bbcff",
+    primary: "#696cff",
     secondary: "#8592a3",
     success: "#71dd37",
     info: "#03c3ec",

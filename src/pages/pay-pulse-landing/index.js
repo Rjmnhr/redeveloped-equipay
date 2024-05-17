@@ -15,10 +15,11 @@ import { DatePicker, Modal, Select, Switch, TimePicker } from "antd";
 import moment from "moment";
 import dayjs from "dayjs";
 import Contact from "../../components/contact";
+import { goToExternalURL } from "../../utils/price-a-job-helper-functions";
 
 const PayPulseLandingPage = () => {
   const navigate = useNavigate();
-  const { userData } = useApplicationContext();
+  const { userData, isTrailActive } = useApplicationContext();
   const location = window.location.href;
   const userID = localStorage.getItem("user_id");
   sessionStorage.removeItem("activeIndex");
@@ -188,7 +189,11 @@ const PayPulseLandingPage = () => {
                       <button
                         onClick={() => {
                           if (userData) {
-                            navigate(pay_pulse_input_path);
+                            goToExternalURL(
+                              pay_pulse_input_path,
+                              userData?.user_type,
+                              isTrailActive
+                            );
                           } else {
                             navigate(login_app_path);
                           }

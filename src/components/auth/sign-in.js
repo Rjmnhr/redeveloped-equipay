@@ -13,8 +13,10 @@ import {
   privacy_policy_path,
   terms_condition_path,
 } from "../../config/constant";
+import { goToExternalURL } from "../../utils/price-a-job-helper-functions";
 
 const SignIn = () => {
+  const { userData, isTrailActive } = useApplicationContext();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [isLoading, setIsLoading] = useState(false);
@@ -69,7 +71,11 @@ const SignIn = () => {
       setEmail("");
       setPassword("");
       if (path === pay_pulse_input_path) {
-        navigate(pay_pulse_input_path);
+        goToExternalURL(
+          pay_pulse_input_path,
+          userData?.user_type,
+          isTrailActive
+        );
       } else {
         navigate(path);
       }
